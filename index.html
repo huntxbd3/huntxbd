@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HuntX BD - Free Fire Tournament App</title>
+    <meta name="description" content="HuntX BD - বাংলাদেশের সেরা Free Fire টুর্নামেন্ট অ্যাপ। BR, CS, Pro League, Champion Rush, Scrim এবং আরও অনেক মোড।">
+    <meta name="theme-color" content="#0a0a0f">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="website.css">
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+</head>
+<body>
+    <!-- Nav -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="brand">
+                <img src="logo.png" alt="HuntX BD" class="brand-logo">
+                <span>HuntX <em>BD</em></span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">ফিচার</a>
+                <a href="#modes">মোড</a>
+                <a href="#top">ডাউনলোড</a>
+                <a href="#top" class="nav-cta">অ্যাপ ডাউনলোড</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="nav-mobile" id="navMobile">
+            <a href="#features">ফিচার</a>
+            <a href="#modes">মোড</a>
+            <a href="#top">ডাউনলোড</a>
+            <a href="https://t.me/huntxbd" target="_blank" rel="noopener">Telegram</a>
+            <a href="#top" class="nav-cta">অ্যাপ ডাউনলোড</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="top">
+        <div class="hero-bg"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <div class="hero-badge" id="txt-hero-badge"><i class="fas fa-fire"></i> Free Fire Tournament</div>
+            <div class="hero-logo-wrap premium-click">
+                <img src="logo.png" alt="HuntX BD" class="hero-logo">
+            </div>
+            <h1 id="txt-hero-title">HuntX <span>BD</span></h1>
+            <p class="hero-sub" id="txt-hero-sub">বাংলাদেশের প্রিমিয়াম Free Fire টুর্নামেন্ট প্ল্যাটফর্ম।<br>ম্যাচ জয়েন করুন, জিতুন, উইথড্র করুন — সব এক অ্যাপে।</p>
+            <div class="hero-actions hero-actions-col">
+                <a href="#" class="btn btn-download-premium" id="hero-download-btn" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-glow-ring"></span>
+                    <span class="btn-shine"></span>
+                    <i class="fas fa-download"></i>
+                    <span class="btn-label">অ্যাপ ডাউনলোড করুন</span>
+                </a>
+                <a href="#" class="btn btn-tutorial-sm" id="hero-tutorial-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i> কিভাবে ডাউনলোড করবেন?
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat premium-click"><strong>BR / CS</strong><span>সব মোড</span></div>
+                <div class="stat premium-click"><strong>Pro League</strong><span>টিম টুর্নি</span></div>
+                <div class="stat premium-click"><strong>Fast Pay</strong><span>Add Money</span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title" id="txt-features-title">কেন <span>HuntX BD</span>?</h2>
+            <p class="section-desc" id="txt-features-desc">দ্রুত জয়েন, ফেয়ার রেজাল্ট, সহজ উইথড্র — গেমারদের জন্য ডিজাইন করা</p>
+            <div class="feature-grid">
+                <div class="feature-card premium-click">
+                    <div class="f-icon"><i class="fas fa-gamepad"></i></div>
+                    <h3>সব মোড এক জায়গায়</h3>
+                    <p>BR Match, BR Survival, Clash Squad, Lone Wolf, CS 2vs2 এবং Pro League।</p>
+                </div>
+                <div class="feature-card premium-click">
+                    <div class="f-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>দ্রুত ম্যাচ জয়েন</h3>
+                    <p>সোলো/ডুও/স্কোয়াড জয়েন, রুম আইডি ও পাসওয়ার্ড অ্যাপ থেকেই নিন।</p>
+                </div>
+                <div class="feature-card premium-click">
+                    <div class="f-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>প্রাইজ ও রেজাল্ট</h3>
+                    <p>পজিশন ও কিল প্রাইজ, পয়েন্ট টেবিল, টপ প্লেয়ার লিডারবোর্ড।</p>
+                </div>
+                <div class="feature-card premium-click">
+                    <div class="f-icon"><i class="fas fa-wallet"></i></div>
+                    <h3>Add Money / Withdraw</h3>
+                    <p>বিকাশ-নগদ দিয়ে টাকা যোগ ও উইনিং উইথড্র সহজভাবে।</p>
+                </div>
+                <div class="feature-card premium-click">
+                    <div class="f-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3>সুরক্ষিত অ্যাকাউন্ট</h3>
+                    <p>ইউজারনেম/পাসওয়ার্ড বা Google দিয়ে লগইন — আপনার ডেটা নিরাপদ।</p>
+                </div>
+                <div class="feature-card premium-click">
+                    <div class="f-icon"><i class="fab fa-telegram"></i></div>
+                    <h3>২৪/৭ সাপোর্ট</h3>
+                    <p>সমস্যা হলে Telegram সাপোর্টে যোগাযোগ করুন, দ্রুত সমাধান।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modes -->
+    <section id="modes" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">টুর্নামেন্ট <span>মোড</span></h2>
+            <p class="section-desc">নরমাল ম্যাচ থেকে প্রো লিগ — সব ধরনের খেলোয়াড়ের জন্য</p>
+            <div class="mode-grid">
+                <div class="mode-card premium-click"><span class="mode-tag">Classic</span><h3>BR Match</h3><p>ব্যাটল রয়্যাল · টপ প্রাইজ</p></div>
+                <div class="mode-card premium-click"><span class="mode-tag">Classic</span><h3>BR Survival</h3><p>সারভাইভাল · টপ ১০ প্রাইজ</p></div>
+                <div class="mode-card premium-click"><span class="mode-tag">Classic</span><h3>Clash Squad</h3><p>CS মোড · ফাস্ট ম্যাচ</p></div>
+                <div class="mode-card premium-click"><span class="mode-tag">Classic</span><h3>Lone Wolf</h3><p>১v১ · স্কিল শোডাউন</p></div>
+                <div class="mode-card mode-pro premium-click"><span class="mode-tag pro">Pro League</span><h3>Champion Rush</h3><p>৬ ম্যাপ · টিম টুর্নি</p></div>
+                <div class="mode-card mode-pro premium-click"><span class="mode-tag pro">Pro League</span><h3>Point Rush</h3><p>পয়েন্ট ভিত্তিক লিগ</p></div>
+                <div class="mode-card mode-pro premium-click"><span class="mode-tag pro">Pro League</span><h3>Scrim</h3><p>৩ ম্যাপ প্র্যাকটিস</p></div>
+                <div class="mode-card mode-pro premium-click"><span class="mode-tag pro">Pro League</span><h3>Qualified / Versus</h3><p>গ্রুপ ও VS ম্যাচ</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin only (hidden unless ?admin=1) -->
+    <section id="download" class="section admin-only-section" style="padding:0;margin:0;">
+        <div class="container">
+            <!-- Admin panel: only visible with ?admin=1 or #admin -->
+            <div class="admin-panel" id="admin-panel" style="display:none !important;" hidden>
+                <button type="button" class="admin-panel-toggle" id="admin-toggle">⚙️ অ্যাডমিন প্যানেল</button>
+                <div class="admin-panel-body hidden" id="admin-body">
+                    <div id="admin-lock">
+                        <p class="owner-help">শুধু অ্যাডমিন — পিন: <code>huntx</code></p>
+                        <input type="password" id="admin-pin" placeholder="অ্যাডমিন পিন" autocomplete="off">
+                        <button type="button" class="btn btn-primary" id="admin-unlock-btn" style="margin-top:10px;">আনলক</button>
+                        <p class="yt-note" id="admin-lock-msg"></p>
+                    </div>
+                    <div id="admin-form" class="hidden">
+                        <p class="owner-help"><b>সাইট টেক্সট এডিট</b> — সেভ করলে সবার কাছে দেখা যাবে</p>
+                        <label>হিরো ব্যাজ (উপরের ছোট লেখা)</label>
+                        <input type="text" id="cfg-hero-badge" placeholder="Free Fire Tournament">
+                        <label>হিরো টাইটেল</label>
+                        <input type="text" id="cfg-hero-title" placeholder="HuntX BD">
+                        <label>হিরো সাবটাইটেল</label>
+                        <textarea id="cfg-hero-sub" rows="3" placeholder="বাংলাদেশের প্রিমিয়াম..."></textarea>
+                        <label>ফিচার সেকশন টাইটেল</label>
+                        <input type="text" id="cfg-features-title" placeholder="কেন HuntX BD?">
+                        <label>ফিচার সেকশন বর্ণনা</label>
+                        <input type="text" id="cfg-features-desc" placeholder="দ্রুত জয়েন...">
+                        <label>ফুটার ছোট লেখা</label>
+                        <input type="text" id="cfg-footer-tag" placeholder="Free Fire Tournament Platform">
+                        <label>Telegram সাপোর্ট লিংক</label>
+                        <input type="text" id="cfg-telegram" placeholder="https://t.me/huntxbd">
+                        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.12);margin:14px 0;">
+                        <p class="owner-help"><b>APK আপলোড</b> (সর্বোচ্চ ২৫ MB) অথবা বাইরের লিংক দিন।</p>
+                        <label>APK ফাইল আপলোড (max 25 MB)</label>
+                        <input type="file" id="cfg-apk-file" accept=".apk,application/vnd.android.package-archive">
+                        <button type="button" class="btn btn-primary" id="cfg-upload-btn" style="margin-top:8px;">আপলোড করুন</button>
+                        <p class="yt-note" id="cfg-upload-msg"></p>
+                        <div class="upload-progress hidden" id="upload-progress">
+                            <div class="upload-bar" id="upload-bar"></div>
+                        </div>
+                        <label>অথবা ডাউনলোড URL (Drive / MediaFire / অন্য)</label>
+                        <input type="text" id="cfg-apk-url" placeholder="https://... বা Firebase লিংক">
+                        <label>YouTube টিউটোরিয়াল URL</label>
+                        <input type="text" id="cfg-yt-url" placeholder="https://www.youtube.com/watch?v=...">
+                        <button type="button" class="btn btn-primary" id="cfg-save-btn" style="margin-top:12px;">সব সেভ করুন</button>
+                        <p class="yt-note" id="cfg-save-msg"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="logo.png" alt="HuntX BD" class="brand-logo">
+                <div>
+                    <strong id="txt-footer-brand">HuntX BD</strong>
+                    <p id="txt-footer-tag">Free Fire Tournament Platform</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="#top">ডাউনলোড গাইড</a>
+                <a href="https://t.me/huntxbd" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> Support</a>
+            </div>
+            <p class="copyright">© 2026 HuntX BD · All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        const SITE_CONFIG = {
+            appDownloadUrl: 'https://github.com/huntxbd3/huntxbd/releases/download/v1.0/HuntX_BD.apk',
+            youtubeTutorialUrl: 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID',
+            adminPin: 'huntx',
+            maxApkMb: 25
+        };
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAf4GfrcG9B2D-cF-8fN6UtpdJmP0GmTic",
+            authDomain: "huntx-bd-website-official.firebaseapp.com",
+            projectId: "huntx-bd-website-official",
+            storageBucket: "huntx-bd-website-official.firebasestorage.app",
+            messagingSenderId: "86297170858",
+            appId: "1:86297170858:web:2c519ee03e6cb8af0a11d3",
+            measurementId: "G-LZYQXB00R2"
+        };
+
+        let db = null;
+        let storage = null;
+        let fbReady = false;
+        try {
+            if (typeof firebase !== 'undefined') {
+                firebase.initializeApp(firebaseConfig);
+                db = firebase.firestore();
+                storage = firebase.storage();
+                fbReady = true;
+            }
+        } catch (e) { console.warn(e); }
+
+        let cloudApk = '';
+        let cloudYt = '';
+        let cloudContent = {};
+
+        const DEFAULT_CONTENT = {
+            heroBadge: 'Free Fire Tournament',
+            heroTitle: 'HuntX BD',
+            heroSub: 'বাংলাদেশের প্রিমিয়াম Free Fire টুর্নামেন্ট প্ল্যাটফর্ম।\nম্যাচ জয়েন করুন, জিতুন, উইথড্র করুন — সব এক অ্যাপে।',
+            featuresTitle: 'কেন HuntX BD?',
+            featuresDesc: 'দ্রুত জয়েন, ফেয়ার রেজাল্ট, সহজ উইথড্র — গেমারদের জন্য ডিজাইন করা',
+            footerTag: 'Free Fire Tournament Platform',
+            telegram: 'https://t.me/huntxbd'
+        };
+
+        async function loadCloudConfig() {
+            if (!fbReady || !db) return;
+            try {
+                const snap = await db.collection('config').doc('website').get();
+                if (snap.exists) {
+                    const d = snap.data() || {};
+                    const v = d.value !== undefined ? d.value : d;
+                    if (v.appDownloadUrl) cloudApk = String(v.appDownloadUrl);
+                    if (v.youtubeTutorialUrl) cloudYt = String(v.youtubeTutorialUrl);
+                    cloudContent = {
+                        heroBadge: v.heroBadge || '',
+                        heroTitle: v.heroTitle || '',
+                        heroSub: v.heroSub || '',
+                        featuresTitle: v.featuresTitle || '',
+                        featuresDesc: v.featuresDesc || '',
+                        footerTag: v.footerTag || '',
+                        telegram: v.telegram || ''
+                    };
+                }
+            } catch (e) { console.warn('cloud config', e); }
+        }
+
+        function getContent() {
+            const c = cloudContent || {};
+            return {
+                heroBadge: (c.heroBadge || DEFAULT_CONTENT.heroBadge).trim(),
+                heroTitle: (c.heroTitle || DEFAULT_CONTENT.heroTitle).trim(),
+                heroSub: (c.heroSub || DEFAULT_CONTENT.heroSub).trim(),
+                featuresTitle: (c.featuresTitle || DEFAULT_CONTENT.featuresTitle).trim(),
+                featuresDesc: (c.featuresDesc || DEFAULT_CONTENT.featuresDesc).trim(),
+                footerTag: (c.footerTag || DEFAULT_CONTENT.footerTag).trim(),
+                telegram: (c.telegram || DEFAULT_CONTENT.telegram).trim()
+            };
+        }
+
+        function applySiteContent() {
+            const c = getContent();
+            const badge = document.getElementById('txt-hero-badge');
+            if (badge) badge.innerHTML = '<i class="fas fa-fire"></i> ' + c.heroBadge.replace(/<[^>]*>/g, '');
+            const title = document.getElementById('txt-hero-title');
+            if (title) {
+                const t = c.heroTitle;
+                if (/bd/i.test(t) && t.length < 40) {
+                    title.innerHTML = t.replace(/BD/i, '<span>BD</span>');
+                } else {
+                    title.textContent = t;
+                }
+            }
+            const sub = document.getElementById('txt-hero-sub');
+            if (sub) sub.innerHTML = c.heroSub.replace(/\n/g, '<br>').replace(/</g, '&lt;').replace(/&lt;br&gt;/gi, '<br>');
+            const ft = document.getElementById('txt-features-title');
+            if (ft) {
+                const t = c.featuresTitle;
+                if (/HuntX/i.test(t)) {
+                    ft.innerHTML = t.replace(/(HuntX\s*BD)/i, '<span>$1</span>');
+                } else {
+                    ft.textContent = t;
+                }
+            }
+            const fd = document.getElementById('txt-features-desc');
+            if (fd) fd.textContent = c.featuresDesc;
+            const ftag = document.getElementById('txt-footer-tag');
+            if (ftag) ftag.textContent = c.footerTag;
+            document.querySelectorAll('a[href*="t.me"]').forEach(function (a) {
+                if (c.telegram) a.href = c.telegram;
+            });
+            const fill = function (id, val) {
+                const el = document.getElementById(id);
+                if (el) el.value = val || '';
+            };
+            fill('cfg-hero-badge', c.heroBadge);
+            fill('cfg-hero-title', c.heroTitle);
+            fill('cfg-hero-sub', c.heroSub);
+            fill('cfg-features-title', c.featuresTitle);
+            fill('cfg-features-desc', c.featuresDesc);
+            fill('cfg-footer-tag', c.footerTag);
+            fill('cfg-telegram', c.telegram);
+        }
+
+        async function saveCloudConfig(apk, yt, extra) {
+            if (!fbReady || !db) return false;
+            try {
+                const payload = Object.assign({
+                    appDownloadUrl: apk || '',
+                    youtubeTutorialUrl: yt || '',
+                    updatedAt: new Date().toISOString()
+                }, extra || {});
+                await db.collection('config').doc('website').set({ value: payload }, { merge: true });
+                cloudApk = payload.appDownloadUrl;
+                cloudYt = payload.youtubeTutorialUrl;
+                cloudContent = {
+                    heroBadge: payload.heroBadge || '',
+                    heroTitle: payload.heroTitle || '',
+                    heroSub: payload.heroSub || '',
+                    featuresTitle: payload.featuresTitle || '',
+                    featuresDesc: payload.featuresDesc || '',
+                    footerTag: payload.footerTag || '',
+                    telegram: payload.telegram || ''
+                };
+                return true;
+            } catch (e) {
+                console.error(e);
+                return false;
+            }
+        }
+
+        function getApkUrl() {
+            if (cloudApk) return cloudApk;
+            try {
+                const s = localStorage.getItem('hx_apk_url');
+                if (s && s.trim()) return s.trim();
+            } catch (e) {}
+            return (SITE_CONFIG.appDownloadUrl || '').trim();
+        }
+        function getYtUrl() {
+            if (cloudYt) return cloudYt;
+            try {
+                const s = localStorage.getItem('hx_yt_url');
+                if (s && s.trim()) return s.trim();
+            } catch (e) {}
+            return (SITE_CONFIG.youtubeTutorialUrl || '').trim();
+        }
+
+        function applyDownloadLinks() {
+            const apk = getApkUrl();
+            const yt = getYtUrl();
+            const apkBtn = document.getElementById('app-download-btn');
+            const ytBtn = document.getElementById('yt-tutorial-btn');
+            const hint = document.getElementById('app-download-hint');
+            const heroBtn = document.getElementById('hero-download-btn');
+
+            if (apkBtn) {
+                if (apk && apk !== '#' && !apk.includes('YOUR_')) {
+                    apkBtn.href = apk;
+                    if (hint) hint.textContent = 'ক্লিক করলে APK ডাউনলোড শুরু হবে';
+                } else {
+                    apkBtn.href = 'https://t.me/huntxbd';
+                    if (hint) hint.textContent = 'ডাউনলোড লিংক এখনো সেট হয়নি';
+                }
+            }
+            if (heroBtn) {
+                if (apk && apk !== '#' && !apk.includes('YOUR_')) {
+                    heroBtn.href = apk;
+                    heroBtn.target = '_blank';
+                    heroBtn.rel = 'noopener noreferrer';
+                    heroBtn.onclick = null;
+                } else {
+                    heroBtn.href = 'https://t.me/huntxbd';
+                    heroBtn.target = '_blank';
+                }
+            }
+            const heroYt = document.getElementById('hero-tutorial-btn');
+            const ytHref = (yt && !yt.includes('YOUR_VIDEO_ID')) ? yt : 'https://www.youtube.com';
+            if (ytBtn) ytBtn.href = ytHref;
+            if (heroYt) {
+                heroYt.href = ytHref;
+                heroYt.target = '_blank';
+                heroYt.rel = 'noopener noreferrer';
+            }
+            const cfgApk = document.getElementById('cfg-apk-url');
+            const cfgYt = document.getElementById('cfg-yt-url');
+            if (cfgApk) cfgApk.value = apk || '';
+            if (cfgYt) cfgYt.value = (yt && !yt.includes('YOUR_VIDEO_ID')) ? yt : '';
+        }
+
+        // Admin only via ?admin=1 or #admin
+        function isAdminMode() {
+            const q = new URLSearchParams(location.search).get('admin');
+            return q === '1' || location.hash === '#admin';
+        }
+        function setupAdminVisibility() {
+            const panel = document.getElementById('admin-panel');
+            if (!panel) return;
+            if (isAdminMode()) {
+                panel.hidden = false;
+                panel.style.display = '';
+                panel.removeAttribute('style');
+                document.body.classList.add('admin-mode');
+            } else {
+                panel.hidden = true;
+                panel.style.display = 'none';
+                panel.style.visibility = 'hidden';
+                panel.style.height = '0';
+                panel.style.overflow = 'hidden';
+                panel.style.pointerEvents = 'none';
+                panel.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('admin-mode');
+            }
+        }
+
+        document.getElementById('admin-toggle')?.addEventListener('click', function () {
+            document.getElementById('admin-body')?.classList.toggle('hidden');
+        });
+        document.getElementById('admin-unlock-btn')?.addEventListener('click', function () {
+            const pin = (document.getElementById('admin-pin')?.value || '').trim();
+            const msg = document.getElementById('admin-lock-msg');
+            if (pin === SITE_CONFIG.adminPin) {
+                document.getElementById('admin-lock')?.classList.add('hidden');
+                document.getElementById('admin-form')?.classList.remove('hidden');
+                if (msg) msg.textContent = '';
+            } else if (msg) msg.textContent = 'পিন ভুল!';
+        });
+
+        document.getElementById('cfg-save-btn')?.addEventListener('click', async function () {
+            const apk = (document.getElementById('cfg-apk-url')?.value || '').trim();
+            const yt = (document.getElementById('cfg-yt-url')?.value || '').trim();
+            const msg = document.getElementById('cfg-save-msg');
+            const extra = {
+                heroBadge: (document.getElementById('cfg-hero-badge')?.value || '').trim(),
+                heroTitle: (document.getElementById('cfg-hero-title')?.value || '').trim(),
+                heroSub: (document.getElementById('cfg-hero-sub')?.value || '').trim(),
+                featuresTitle: (document.getElementById('cfg-features-title')?.value || '').trim(),
+                featuresDesc: (document.getElementById('cfg-features-desc')?.value || '').trim(),
+                footerTag: (document.getElementById('cfg-footer-tag')?.value || '').trim(),
+                telegram: (document.getElementById('cfg-telegram')?.value || '').trim()
+            };
+            try {
+                if (apk) localStorage.setItem('hx_apk_url', apk);
+                else localStorage.removeItem('hx_apk_url');
+                if (yt) localStorage.setItem('hx_yt_url', yt);
+                else localStorage.removeItem('hx_yt_url');
+            } catch (e) {}
+            const ok = await saveCloudConfig(apk, yt, extra);
+            applyDownloadLinks();
+            applySiteContent();
+            if (msg) {
+                msg.textContent = ok
+                    ? 'সেভ হয়েছে — টাইটেল, লেখা ও লিংক সবাই দেখবে।'
+                    : 'লোকাল সেভ হয়েছে। Firebase সেভ ব্যর্থ — নেট/রুলস চেক করুন।';
+            }
+        });
+
+        document.getElementById('cfg-upload-btn')?.addEventListener('click', async function () {
+            const input = document.getElementById('cfg-apk-file');
+            const msg = document.getElementById('cfg-upload-msg');
+            const barWrap = document.getElementById('upload-progress');
+            const bar = document.getElementById('upload-bar');
+            const file = input && input.files && input.files[0];
+            if (!file) {
+                if (msg) msg.textContent = 'আগে APK ফাইল সিলেক্ট করুন';
+                return;
+            }
+            const maxBytes = SITE_CONFIG.maxApkMb * 1024 * 1024;
+            if (file.size > maxBytes) {
+                if (msg) msg.textContent = 'ফাইল খুব বড়! সর্বোচ্চ ' + SITE_CONFIG.maxApkMb + ' MB।';
+                return;
+            }
+            if (!file.name.toLowerCase().endsWith('.apk') && file.type !== 'application/vnd.android.package-archive') {
+                if (msg) msg.textContent = 'শুধু .apk ফাইল আপলোড করুন';
+                return;
+            }
+            if (!fbReady || !storage) {
+                if (msg) msg.textContent = 'Firebase Storage চালু নেই। Drive লিংক ব্যবহার করুন।';
+                return;
+            }
+            if (msg) msg.textContent = 'আপলোড হচ্ছে...';
+            if (barWrap) barWrap.classList.remove('hidden');
+            if (bar) bar.style.width = '0%';
+            try {
+                const ref = storage.ref('website/huntx-bd.apk');
+                const task = ref.put(file, { contentType: 'application/vnd.android.package-archive' });
+                task.on('state_changed', snap => {
+                    const pct = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
+                    if (bar) bar.style.width = pct + '%';
+                });
+                await task;
+                const url = await ref.getDownloadURL();
+                const yt = (document.getElementById('cfg-yt-url')?.value || getYtUrl() || '').trim();
+                document.getElementById('cfg-apk-url').value = url;
+                try { localStorage.setItem('hx_apk_url', url); } catch (e) {}
+                await saveCloudConfig(url, yt);
+                applyDownloadLinks();
+                if (msg) msg.textContent = 'আপলোড সফল! ডাউনলোড বাটন আপডেট হয়েছে।';
+            } catch (e) {
+                console.error(e);
+                if (msg) msg.textContent = 'আপলোড ব্যর্থ। Firebase Storage Rules-এ লেখার অনুমতি দিন, অথবা Drive লিংক ব্যবহার করুন।';
+            } finally {
+                if (barWrap) setTimeout(() => barWrap.classList.add('hidden'), 800);
+            }
+        });
+
+        document.querySelectorAll('.btn-download-premium').forEach(btn => {
+            btn.addEventListener('click', function () {
+                this.classList.remove('flash');
+                void this.offsetWidth;
+                this.classList.add('flash');
+                setTimeout(() => this.classList.remove('flash'), 700);
+            });
+        });
+
+        const toggle = document.getElementById('navToggle');
+        const mobile = document.getElementById('navMobile');
+        toggle?.addEventListener('click', () => mobile.classList.toggle('open'));
+        mobile?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobile.classList.remove('open')));
+
+        document.querySelectorAll('.premium-click').forEach(el => {
+            el.addEventListener('click', function (e) {
+                if (e.target.closest('a, button, input, summary, label')) return;
+                this.classList.remove('clicked');
+                void this.offsetWidth;
+                this.classList.add('clicked');
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+                setTimeout(() => this.classList.remove('clicked'), 450);
+            });
+        });
+
+        setupAdminVisibility();
+        window.addEventListener('hashchange', setupAdminVisibility);
+
+        (async function init() {
+            await loadCloudConfig();
+            applyDownloadLinks();
+            applySiteContent();
+        })();
+    </script>
+</body>
+</html>
